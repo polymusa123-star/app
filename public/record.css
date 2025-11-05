@@ -14,6 +14,7 @@ table{
     position: relative;
     left: 25px;
     top: 70px;
+    height: 600px;
 
 }
 th{
@@ -46,4 +47,17 @@ th{
 }
 #item:checked +.btn +.btn_menu{
     display: inline;
+}
+#download{
+    position: relative;
+    top: 100px;
+    width: 100px;
+    height: 40px;
+    border-radius: 15px;
+    left: 140px;
+}
+td{
+    border: solid black;
+    padding: 10px;
+    height: 30px;
 }
