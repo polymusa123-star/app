@@ -1,7 +1,7 @@
 body{
         display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
     background-image: url(pic/maroon-colour-combination.jpg);
     position: absolute;
 }
@@ -9,48 +9,58 @@ input{
     display: none;
 }
 .btn{
-    border: solid black;
-    background-color: aqua;
-    height: 15px;
-    margin-right: 340px;
-    margin-top:5px;
-    padding: 10px;
-    
+  border: solid black;
+  background-color: aqua;
+  padding: 13px;
+  position: relative;
+  
     
     
 }
-.btn-menu{
+.btn-menu{ 
     display: none;
-    
-    
+    border: solid gold;
+    width: 260px;
+    background-color: gold;
+    padding: 9px;
 }
 a{
-    text-decoration: none;
-    justify-items: space-evenly;
-    margin-top: -15px;
+ margin: 5px;
+ text-decoration: none;
 }
 
-#item:checked +.btn +.btn-menu{
-    display:inline;
-    padding: 8px;
-    right: 114px;
-    position: relative;
-    top: -37px;
-    border: solid black;
-    background-color: gold;
+#item:checked +.btn +.btn-menu {
+  display: inline;
 }
 #camera{
     width: 375px;
     height: 500px;
     border: solid black;
     position: relative;
-    top: 20px;
     background-color: rgb(1, 86, 86);
+    margin-top: 5px;
 }
-#result{
-    border: solid black;
-    width: 370px;
-    height: 150px;
-    position: relative;
-    top:15px ;
+#result {
+  border: 2px solid gold;
+  width: 350px;
+  height: 70px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: rgba(0,0,0,0.2);
+  color: white;
+  text-align: left;
+  word-wrap: break-word;     
+  overflow-wrap: break-word;  
+  white-space: pre-wrap;      
+}
+#refresh {
+  position: relative;
+  left: 140px;
+  width: 95px;
+  height: 40px;
+  border-radius: 15px;
+}
+
+#refresh:hover {
+  background-color: orange;
 }

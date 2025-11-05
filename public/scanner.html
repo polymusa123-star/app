@@ -12,14 +12,20 @@
         <label for="item" class="btn">=</label>
         <div class="btn-menu">
             <a href="index.html">home</a>
-            <a href="">QR generator</a>
-            <a href="">records</a>
-    
+            <a href="qrcode.html">QR generator</a>
+            <a href="record.html">records</a>
+  
     </div>
     <div id="camera"></div>
     <p id="result"></p>
-
+  <button id="refresh">reload</button>
  <script src="libs/html5-qrcode.min.js"></script>
 <script src="scan.js"></script>
+<script>
+    document.getElementById('refresh').addEventListener('click', () => {
+  location.reload(); // reloads the entire page
+});
+
+</script>
 </body>
 </html>

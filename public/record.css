@@ -1,0 +1,49 @@
+
+body{
+        display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-image: url(pic/maroon-colour-combination.jpg);
+    position: absolute;
+    width: 320px;
+}
+table{
+    border: solid gold;
+    background-color: white;
+    width: 320px;
+    position: relative;
+    left: 25px;
+    top: 70px;
+
+}
+th{
+    border: solid red;
+    padding:10px;
+}
+#item{
+    display: none;
+}
+.btn{
+    position: relative;
+    padding: 10px;
+    border: solid black;
+    top: 15px;
+    background-color: aqua;
+}
+.btn_menu{
+    display: none;
+    border: solid gold;
+    position:relative; 
+    left: -4px;
+    top: 15px;
+    background-color: gold;
+    padding: 9px;
+    width: 220px;
+}
+.btn_menu a{
+    margin: 5px;
+    text-decoration: none;
+}
+#item:checked +.btn +.btn_menu{
+    display: inline;
+}

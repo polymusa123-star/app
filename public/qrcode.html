@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="qr.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+            <input type="checkbox" id="item">
+        <label for="item" class="btn">=</label>
+        <div class="btn_menu">
+            <a href="index.html">home</a>
+            <a href="scanner.html">scanner</a>
+            <a href="record.html">records</a>
+    
+    </div>
+</div>
+    <h2>QR generator</h2>
+    <div id="QR">result</div>
+<form id="qrform">
+    <input type="text" id="user"placeholder="Name">
+    <input type="text" id="address"placeholder="Address">
+    <input type="number" id="contact" placeholder="Contact">
+    <input type="number" id="idnumber" placeholder="ID number">
+    <br>
+    <button type="submit" id="generate">click</button>
+</form>
+<script src="qrcode.min.js"></script>
+<script >
+    const form = document.getElementById('qrform');
+
+    form.addEventListener('submit',async function (e) {
+        e.preventDefault();
+
+        const data = {
+        name: document.getElementById('user').value,
+        address: document.getElementById('address').value,
+        contact: document.getElementById('contact').value,
+        idnumber: document.getElementById('idnumber').value
+};
+
+const qrDiv = document.getElementById('QR');
+    qrDiv.innerHTML ='';
+
+    try {
+        const qrCanvas = document.createElement('canvas');
+        await QRCode.toCanvas(qrCanvas, JSON.stringify(data));
+
+        qrDiv.appendChild(qrCanvas);
+
+        const qrImage = qrCanvas.toDataURL("image/png");
+
+        const link = document.createElement('a');
+        link.href = qrImage;
+        link.download =`qr_${data.name}.png`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } catch(err){
+        console.error(err);
+    }
+        
+    });
+    
+</script>
+</body>
+</html>

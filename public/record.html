@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="record.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <div class="main">
+            <input type="checkbox" id="item">
+        <label for="item" class="btn">=</label>
+        <div class="btn_menu">
+            <a href="index.html">home</a>
+            <a href="scanner.html">scanner</a>
+            <a href="qrcode.html">QR generator</a>
+    
+    </div>
+    <div>
+    <table id="attendanceTable">
+    <thead>
+        <tr>
+        <th>ID NO.</th>
+        <th>Name</th>
+        <th>time</th>
+        </tr>
+    </thead>
+        <tbody> </tbody>
+        </table>
+    </div>
+        <script>
+    async function loadTable() {
+      try {
+        const response = await fetch('http://localhost:3000/data');
+        const records = await response.json();
+        const tbody = document.querySelector('#attendanceTable tbody');
+        tbody.innerHTML = '';
+
+        records.forEach(rec => {
+          try {
+            // Parse qr_content into an object
+            const qrData = JSON.parse(rec.qr_content);
+            const row = `
+              <tr>
+                <td>${qrData.idnumber}</td>
+                <td>${qrData.name}</td>
+                <td>${rec.date} ${rec.time}</td>
+              </tr>`;
+            tbody.innerHTML += row;
+          } catch (err) {
+            console.error('Invalid QR data:', err);
+          }
+        });
+      } catch (err) {
+        console.error('Error loading data:', err);
+      }
+    }
+
+    loadTable(); // Load automatically on page start
+  </script>
+</body>
+</html>
