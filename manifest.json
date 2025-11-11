@@ -1,0 +1,25 @@
+{
+  "background_color": "#590101",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "OnScan",
+  "orientation": "any",
+  "scope": "/Onscan.com",
+  "short_name": "Scan",
+  "start_url": "/Onscan.com",
+  "theme_color": "#e4fb0e",
+  "icons": [
+    {
+      "src": "/android/icon-192x192.png",
+      "type": "image/png",
+      "sizes":"192x192"
+    },
+    {
+      "src":"/android/icon-512x512.png",
+      "type":"image/png",
+      "sizes":"512x512"
+    }
+  ],
+  "lang": "en",
+  "id": "/Onscan.com"
+}
